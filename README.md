@@ -4,8 +4,8 @@ A simple Telegram bot that allows you to set reminders (test it on @NoxiousPluKs
 Also works in groups
 
 ## Requirements
-* .NET 5.0
-* Any OS that runs .NET 5.0 (Linux, Windows, Mac OS, whatever)
+* .NET 5.x
+* Any OS that runs .NET 5.x (Linux, Windows, Mac OS, whatever)
 
 ## Setup bot
 * Create a new bot in Botfather
