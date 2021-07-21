@@ -43,7 +43,7 @@ namespace EggTimerBot
         private async static void EggTimerBot_OnMessage(object sender, Telegram.Bot.Args.MessageEventArgs e)
         {
             var message = e.Message;
-            if (message == null || message.Type != MessageType.TextMessage) return;
+            if (message == null || message.Type != MessageType.Text) return;
 
             if (message.Text.StartsWith("/set"))
             {
@@ -52,9 +52,9 @@ namespace EggTimerBot
                 if (isNumeric && n > 0 && n <= 3600)
                 {
                     Console.WriteLine("Added timer for " + FormName(message.From) + " in " + n.ToString() + " seconds.");
-                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, "Tick tock...", ParseMode.Default, false, false, message.MessageId);
+                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, "Tick tock...", ParseMode.Default, default, default, default, message.MessageId);
                     await Task.Delay(n*1000);
-                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, "Ding!",ParseMode.Default,false,false, message.MessageId);
+                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, "Ding!",ParseMode.Default, default, default, default, message.MessageId);
                     Console.WriteLine("Timer for " + FormName(message.From) + " done.");
                 }
                 else
@@ -64,7 +64,7 @@ namespace EggTimerBot
                     returnMessage += "  /set 600 pizza   --   Warn me in 10 minutes (600 seconds)" + Environment.NewLine;
                     returnMessage += Environment.NewLine;
                     returnMessage += "Maximum value is 3600 (one hour)" + Environment.NewLine;
-                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, returnMessage, ParseMode.Html, false, false, message.MessageId);
+                    await EggTimerBot.SendTextMessageAsync(message.Chat.Id, returnMessage, ParseMode.Html, default, default, default, message.MessageId);
                 }
             }
         }
